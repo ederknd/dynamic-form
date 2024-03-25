@@ -1,0 +1,6 @@
+<div>
+  <%= link_to question.label,
+        edit_question_path(question),
+        id: "question_#{question.id}",
+        data: { turbo_frame: 'management_panel' } %>
+</div>

@@ -1,0 +1,11 @@
+<% @question = Form.first.questions.find(2) %>
+<% @answer = Answer.new(question: @question, entryable: Input::Text.new) %>
+
+<%= form_with url: answers_path(params: { question: @question }), method: :post do |form| %>
+  <div>
+    <%= form.label :content, @question.label %>
+    <%= form.collection_radio_buttons :content, @question.options, :name, :name %>
+  </div>
+
+  <%= form.submit "Search" %>
+<% end %>

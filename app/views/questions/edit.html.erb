@@ -1,0 +1,22 @@
+<%= turbo_frame_tag 'management_panel' do %>
+  <%= form_with(model: @question) do |form| %>
+    <%= form.label(:label) %>
+    <%= form.text_field(:label) %>
+
+    <%= form.button %>
+  <% end %>
+
+  <% Question::SIMPLE.each do |input_type| %>
+    <%= button_to input_type,
+          questions_input_type_path(@question, input_type: input_type, type: 'Questions::Simple'),
+          method: :put %>
+  <% end %>
+
+  <% Question::COLLECTION.each do |input_type| %>
+    <%= button_to input_type,
+          questions_input_type_path(@question, input_type: input_type, type: 'Questions::Collection'),
+          method: :put %>
+  <% end %>
+
+  <%= turbo_frame_tag 'options', src: question_options_path(@question) if @question.is_a?(Questions::Collection) %>
+<% end %>

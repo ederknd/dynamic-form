@@ -1,0 +1,13 @@
+<div style="display: flex; gap: 32px">
+  <div>
+    <%= link_to 'New', new_question_path, data: { turbo_frame: 'management_panel' }  %>
+
+    <div id='label_links'>
+      <%= render partial: 'label_link', collection: @questions, as: :question %>
+    </div>
+  </div>
+
+  <div>
+    <%= turbo_frame_tag 'management_panel' %>
+  </div>
+</div>

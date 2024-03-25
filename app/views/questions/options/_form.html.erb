@@ -1,0 +1,13 @@
+<div style='display: flex;'>
+  <div>
+    <%= form_with(model: option,
+          url: question_option_path(option, question_id: option.question_id)) do |form| %>
+      <%= form.text_field(:name) %>
+      <%= form.button %>
+    <% end %>
+  </div>
+
+  <%= button_to 'delete',
+        question_option_path(option, question_id: option.question_id),
+        method: :delete %>
+</div>

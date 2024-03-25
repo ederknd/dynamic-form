@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "question_#{@question.id}" do %>
+  <%= render partial: 'questions/label_link', locals: { question: @question } %>
+<% end %>

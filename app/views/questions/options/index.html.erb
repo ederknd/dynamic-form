@@ -1,0 +1,8 @@
+<%= turbo_frame_tag 'options' do %>
+  <div style="border: 2px red solid; margin: 8px; padding: 8px">
+    <%= render partial: 'questions/options/form', collection: @options, as: :option %>
+
+    <%= turbo_frame_tag 'new_option' %>
+    <%= link_to 'add', new_question_option_path(@question), data: { turbo_frame: 'new_option' } %>
+  </div>
+<% end %>
